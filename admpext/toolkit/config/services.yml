@@ -1,0 +1,12 @@
+services:
+    admpext.toolkit.acp.controller:
+        class: admpext\toolkit\controller\acp_controller
+        arguments:
+            - '@config'
+            - '@language'
+            - '@filesystem'
+            - '@request'
+            - '@template'
+            - '@user'
+            - '%core.root_path%'
+            - '%core.php_ext%'

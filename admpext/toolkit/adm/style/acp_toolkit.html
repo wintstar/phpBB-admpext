@@ -1,0 +1,76 @@
+{% INCLUDE 'overall_header.html' %}
+
+{% INCLUDECSS '@admpext_toolkit/acp_toolkit.css' %}
+{% INCLUDEJS '@admpext_toolkit/acp_toolkit_script.js' %}
+
+<div style="float:right">
+	<p>
+		<a href="{{ U_TOOLKIT_ADMP }}" target="_blank" rel="noopener noreferrer">{{ lang('ACP_TOOLKIT_ADMP_INDEX') }}</a>
+	</p>
+</div>
+
+<a id="maincontent"></a>
+
+<h1>{{ lang('ACP_TOOLKIT_TOKEN') }}</h1>
+
+<p>{{ lang('ACP_TOOLKIT_TOKEN_EXPLAIN') }}</p>
+
+<fieldset>
+	<legend>{{ lang('ACP_TOOLKIT_STORE_TOKEN') }}</legend>
+	<dl>
+		<dt><label>{{ lang('ACP_TOOLKIT_EMERGENCY') ~ lang('COLON') }}</label></dt>
+		<dd><b>{{ USERNAME }}</b></dd>
+		<dd>
+			<div class="codebox">
+				<p>{{ lang('CODE') ~ lang('COLON') }} <a href="#" onclick="selectCode(this); return false;">{{ lang('SELECT_ALL_CODE') }}</a></p>
+				<pre><code>{{ EMERGENCY_TOKEN }}</code></pre>
+			</div>
+		</dd>
+	</dl>
+	<dl>
+		<dt><label>{{ lang('ACP_TOOLKIT_EMERGENCY_CHECK') ~ lang('COLON') }}</label></dt>
+		<dd>
+			{% if S_EMERGENCY_TOKEN_MSG %}
+				{{ EMERGENCY_TOKEN_MSG }}
+			{% endif %}
+			{% if S_EMERGENCY_TOKEN_ERROR %}
+				<br><span class="error">{{ EMERGENCY_TOKEN_ERROR }}</span>
+			{% endif %}
+		</dd>
+	</dl>
+	<dl>
+		<dt><label>{{ lang('ACP_TOOLKIT_TOKEN_CREATED') ~ lang('COLON') }}</label></dt>
+		<dd>{{ ADMP_TOKEN_CREATED }}</dd>
+	</dl>
+	<dl>
+		<dt><label>{{ lang('ACP_TOOLKIT_TOKEN_UPDATED') ~ lang('COLON') }}</label></dt>
+		<dd>{{ ADMP_TOKEN_UPDATED }}</dd>
+	</dl>
+</fieldset>
+<fieldset>
+	<legend>{{ lang('ACP_TOOLKIT_TOKEN_DIRS') }}</legend>
+	<dl>
+		<dt><label>{{ lang('ACP_TOOLKIT_BOARD_DIR') ~ lang('COLON') }}</label></dt>
+		<dd>
+			{% if S_BOARD_DIR_MSG %}
+				{{ BOARD_DIR_MSG }}
+			{% endif %}
+			{% if S_BOARD_DIR_ERROR %}
+				<br><span class="error">{{ BOARD_DIR_ERROR }}</span>
+			{% endif %}
+		</dd>
+	</dl>
+	<dl>
+		<dt><label>{{ lang('ACP_TOOLKIT_ADMP_DIR') ~ lang('COLON') }}</label></dt>
+		<dd>
+			{% if S_ADMP_DIR_MSG %}
+				{{ ADMP_DIR_MSG }}
+			{% endif %}
+			{% if S_ADMP_DIR_ERROR %}
+				<br><span class="error">{{ ADMP_DIR_ERROR }}</span>
+			{% endif %}
+		</dd>
+	</dl>
+</fieldset>
+
+{% include 'overall_footer.html' %}
